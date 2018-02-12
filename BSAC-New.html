@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<title>Brown Sports Analytics</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey w3-content" onload="next_page(1); sort(get_sort())" style="max-width:1600px">
+
+<script>
+  var currentsort = 1;
+  function get_sort(){
+      return currentsort;
+  }
+  function set_sort(sort){
+      currentsort = sort;
+  }
+</script>
+
+<script>
+  var currentpage;
+  function get_page(){
+      return currentpage;
+  }
+  function set_page(page){
+      currentpage = page;
+  }
+</script>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:200px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-large w3-hover-grey w3-padding" data-fa-transform="up-20" title="close menu">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+    <img src="img/BSAC_Logo.png" style="width:100%" class="w3-square"><br><br>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="far fa-clock w3-margin-right"></i>RECENT POSTS</a> 
+    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a> 
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT</a>
+  </div>
+  <div class="w3-panel w3-xxlarge w3-center">
+    <i style="cursor:pointer; color: rgb(59, 89, 152)" onclick="location.href='https://www.facebook.com/BrownSportsAnalyticsClub/'" class="fab fa-facebook-square w3-hover-opacity w3-margin-right"></i>
+    <i style="cursor:pointer; color: rgb(85, 172, 238)" onclick="location.href='https://twitter.com/brownu_sac'" class="fab fa-twitter w3-hover-opacity w3-margin-right"></i>
+  </div>
+  <div>
+    Current Bugs: contact form is non-functional, Back button resets everything, page sorting is not maintained by page
+  </div>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:210px">
+
+  <!-- Header -->
+  <header id="portfolio">
+    <a href="#"><img src="img/BSAC_Logo.png" style="width:65px;" class="w3-square w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    <h1><b>Brown Sports Analytics</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <span class="w3-margin-right">Filter:</span> 
+      <button onclick="sort(1)" id="all" class="w3-button">ALL</button>
+      <button onclick="sort(2)" id="NFL" class="w3-button"><i class="fas fa-football-ball w3-margin-right"></i>NFL</button>
+      <button onclick="sort(3)" id="MLB" class="w3-button w3-hide-small"><i class="fas fa-baseball-ball w3-margin-right"></i>MLB</button>
+      <button onclick="sort(4)" id="NBA" class="w3-button w3-hide-small"><i class="fas fa-basketball-ball w3-margin-right"></i>NBA</button>
+      <button onclick="sort(5)" id="NHL" class="w3-button w3-hide-small"><i class="fas fa-hockey-puck w3-margin-right"></i>NHL</button>
+      <button onclick="sort(6)" id="Other" class="w3-button w3-hide-small"><i class="fas fa-plus-square w3-margin-right"></i>Other</button>
+    </div>
+    </div>
+  </header>
+  
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding">
+    <div title="null" class="w3-third w3-container w3-margin-bottom w3-hover-opacity">
+      <a id="link1" href="posts/mit_sloan.html" title="test" style="text-decoration: none">
+      <img id="img1" src="img/BSAC_Empty.png" alt="Other" style="width:100%">
+      <div id="cap1" class="w3-container w3-white">
+      </div>
+    </a>
+    </div>
+    <div title="null" class="w3-third w3-container w3-margin-bottom w3-hover-opacity">
+      <a id="link2" href="posts/draft_pick_valuation.html" title="null" style="text-decoration: none">
+      <img id="img2" src="img/BSAC_Empty.png" alt="NBA" style="width:100%">
+      <div id="cap2" class="w3-container w3-white">
+      </div>
+    </div>
+  </a>
+    <div title="null" class="w3-third w3-container w3-hover-opacity">
+      <a id="link3" href="posts/peyton_manning.html"  title="null" style="text-decoration: none">
+      <img id="img3" src="img/BSAC_Empty.png" alt="NFL" style="width:100%">
+      <div id="cap3" class="w3-container w3-white">
+      </div>
+    </div>
+  </a>
+  </div>
+  
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding">
+    <div title="null" class="w3-third w3-container w3-margin-bottom w3-hover-opacity">
+      <a id="link4" href="#contact" title="null" style="text-decoration: none">
+      <img id="img4" src="img/BSAC_Empty.png" alt="Other" style="width:100%">
+      <div id="cap4" class="w3-container w3-white">
+      </div>
+    </div>
+  </a>
+    <div title="null" class="w3-third w3-container w3-margin-bottom w3-hover-opacity">
+      <a id="link5" href="#contact" title="null" style="text-decoration: none">
+      <img id="img5" src="img/BSAC_Empty.png" alt="MLB" style="width:100%">
+      <div id="cap5" class="w3-container w3-white">
+      </div>
+    </div>
+  </a>
+    <div title="null" class="w3-third w3-container w3-hover-opacity">
+      <a id="link6" href="#contact" title="null" style="text-decoration: none">
+      <img id="img6" src="img/BSAC_Empty.png" alt="N/A" style="width:100%">
+      <div id="cap6" class="w3-container w3-white">
+      </div>
+    </div>
+  </a>
+  </div>
+
+  <!-- Pagination -->
+  <div class="w3-container w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a class="w3-bar-item w3-button w3-hover-black" onclick="next_page(6)">&#8592;</a>
+      <a id="page1" class="w3-bar-item w3-hover-black w3-black w3-button" onclick="next_page(1)">1</a>
+      <a id="page2" class="w3-bar-item w3-button w3-hover-black" onclick="next_page(2)">2</a>
+      <a id="page3" class="w3-bar-item w3-button w3-hover-black" onclick="next_page(3)">3</a>
+      <a id="page4" class="w3-bar-item w3-button w3-hover-black" onclick="next_page(4)">4</a>
+      <a class="w3-bar-item w3-button w3-hover-black" onclick="next_page(5)">&#8594;</a>
+    </div>
+  </div>
+
+  <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+    <h4 id="about"><b>About Us</b></h4>
+    <p>Brown's premier club for sports analytics. For the sports fan, data scientist, and everyone in between. </p><p>
+    Our goal is to bring students together to discuss, analyze, and propose new quantitative methods to examine various aspects of the performances and economics of sports.</p>
+    <hr>
+    
+  
+  <!-- Contact Section -->
+  <div id="contact" class="w3-container w3-padding-large w3-grey">
+    <div class="w3-row-padding w3-center" style="margin:0 -16px">
+      <hr class="w3-opacity">
+      <div class="w3-third">
+        <i style="cursor:pointer; color: rgb(59, 89, 152)" onclick="location.href='https://www.facebook.com/BrownSportsAnalyticsClub/'" class="fab fa-facebook-square fa-4x w3-hover-opacity w3-margin-right"></i>
+      </div>
+      <div class="w3-padding w3-third w3-dark-grey">
+        <h4><b>Contact Us</b></h4>
+      </div>
+      <div class="w3-third">
+        <i style="cursor:pointer; color: rgb(85, 172, 238)" onclick="location.href='https://twitter.com/brownu_sac'" class="fab fa-twitter fa-4x w3-hover-opacity w3-margin-right"></i>
+      </div>
+    </div> 
+    <hr class="w3-opacity" />
+    <form action="/action_page.php" target="_blank">
+      <div class="w3-section">
+        <label>Name</label>
+        <input class="w3-input w3-border" type="text" name="Name" required>
+      </div>
+      <div class="w3-section">
+        <label>Email</label>
+        <input class="w3-input w3-border" type="text" name="Email" required>
+      </div>
+      <div class="w3-section">
+        <label>Message</label>
+        <textarea style="height: 140px;" class="w3-input w3-border" type="text" name="Message" required></textarea>
+      </div>
+      <button type="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Send Message</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-dark-grey">
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <h3>ABOUT</h3>
+      <p>Brown's premier club for sports analytics. For the sports fan, data scientist, and everyone in between.</p>
+      <p> Our goal is to bring students together to discuss, analyze, and propose new quantitative methods to examine various aspects of the performances and economics of sports. </p>
+    </div>
+  
+    <div class="w3-third">
+      <h3>FEATURED POSTS</h3>
+      <ul class="w3-ul w3-hoverable">
+        <li onclick="location.href='posts/draft_pick_valuation.html'" class="w3-padding-16" style="cursor:pointer">
+          <img src="img/American_football_icon.png" class="w3-left w3-margin-right" style="width:15%">
+          <span class="w3-large"><b><u>NFL Resource Allocation</u></b></span><br>
+          <span>How much is a draft pick worth?</span>
+        </li>
+        <li onclick="location.href='posts/peyton_manning.html'" class="w3-padding-16" style="cursor:pointer">
+          <img src="img/American_football_icon.png" class="w3-left w3-margin-right" style="width:15%">
+          <span class="w3-large"><b><u>Peyton Manning, Playoff QB?</u></b></span><br>
+          <span>Find out here.</span>
+        </li> 
+      </ul>
+    </div>
+
+    <div class="w3-third">
+      <h3>POPULAR TAGS</h3>
+      <p>
+        <span class="w3-tag w3-grey w3-margin-bottom">NFL</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">NHL</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">NBA</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">MLB</span> <span class="w3-tag w3-grey w3-margin-bottom">NCAA</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Olympics</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">Analytics</span> <span class="w3-tag w3-grey w3-margin-bottom">Boston</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">New York</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Los Angeles</span> <span class="w3-tag w3-grey w3-margin-bottom">Data</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Games</span>
+      </p>
+    </div>
+
+  </div>
+  </footer>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+
+<script>
+    function sort(s){
+
+        var emptystring = "<p><b>Submit Work for the chance to have it featured here!</b></p><p>Do you have sports analytics work that you would like to share? Send it to us at (email here) for a chance to see it shared and posted here.</p>";
+        var mitstring = "<p><b>2017 MIT Sloan Analytics Conference</b></p><p>Posted by Ryan Burke - Class of 2018 on April 1, 2017.</p>"
+        var draftstring = "<p><b>NFL Resource Allocation: How much are NFL Draft picks worth, in Salary Cap Space?</b></p><p>In 2017, the Browns essentially traded 15 million dollars for a second round pick &ndash; was this too high a price to pay?</p>";
+        var peytonstring = "<p><b>Is Peyton Manning a Playoff Quarterback?</b></p><p>Is Peyton Manning a regular season quarterback? We tested this by comparing Manning's average Passer Rating in the playoffs against Manning's average Passer... </p>";
+        if (s == 1){
+          document.getElementById("all").classList.add("w3-black");
+          document.getElementById("NFL").classList.add("w3-white");
+          document.getElementById("NFL").classList.remove("w3-black");
+          document.getElementById("MLB").classList.add("w3-white");
+          document.getElementById("MLB").classList.remove("w3-black");
+          document.getElementById("NBA").classList.add("w3-white");
+          document.getElementById("NBA").classList.remove("w3-black");
+          document.getElementById("NHL").classList.add("w3-white");
+          document.getElementById("NHL").classList.remove("w3-black");
+          document.getElementById("Other").classList.add("w3-white");
+          document.getElementById("Other").classList.remove("w3-black");
+
+          document.getElementById("link1").title="MIT Sloan Conference";
+          document.getElementById("link2").title='Draft Pick Valuation';
+          document.getElementById("link3").title='Peyton Manning in the Playoffs';
+          document.getElementById("link4").title='Submit your work today!';
+          document.getElementById("link5").title='Submit your work today!';
+          document.getElementById("link6").title='Submit your work today!';
+
+          document.getElementById("link1").href = "posts/mit_sloan.html";
+          document.getElementById("link2").href = "posts/draft_pick_valuation.html";
+          document.getElementById("link3").href = "posts/peyton_manning.html";
+          document.getElementById("link4").href = "#contact";
+          document.getElementById("link5").href = "#contact";
+          document.getElementById("link6").href = "#contact";
+
+          document.getElementById("img1").src="img/BSAC_Other.png";
+          document.getElementById("img2").src="img/BSAC_NFL.png";
+          document.getElementById("img3").src="img/BSAC_NFL.png";
+          document.getElementById("img4").src="img/BSAC_Empty.png";
+          document.getElementById("img5").src="img/BSAC_Empty.png";
+          document.getElementById("img6").src="img/BSAC_Empty.png";
+
+          document.getElementById("cap1").innerHTML = mitstring;
+          document.getElementById("cap2").innerHTML = draftstring;
+          document.getElementById("cap3").innerHTML = peytonstring;
+          document.getElementById("cap4").innerHTML = emptystring;
+          document.getElementById("cap5").innerHTML = emptystring;
+          document.getElementById("cap6").innerHTML = emptystring;
+
+          set_sort(1);
+          //next_page(get_page());
+      }
+        if (s == 2){
+          document.getElementById("all").classList.remove("w3-black");
+          document.getElementById("all").classList.add("w3-white");
+          document.getElementById("NFL").classList.add("w3-black");
+          document.getElementById("MLB").classList.add("w3-white");
+          document.getElementById("MLB").classList.remove("w3-black");
+          document.getElementById("NBA").classList.add("w3-white");
+          document.getElementById("NBA").classList.remove("w3-black");
+          document.getElementById("NHL").classList.add("w3-white");
+          document.getElementById("NHL").classList.remove("w3-black");
+          document.getElementById("Other").classList.add("w3-white");
+          document.getElementById("Other").classList.remove("w3-black");
+
+          document.getElementById("link1").title='Draft Pick Valuation';
+          document.getElementById("link2").title='Peyton Manning in the Playoffs';
+          document.getElementById("link3").title='Submit your work today!';
+          document.getElementById("link4").title='Submit your work today!';
+          document.getElementById("link5").title='Submit your work today!';
+          document.getElementById("link6").title='Submit your work today!';
+
+          document.getElementById("link1").href = "posts/draft_pick_valuation.html";
+          document.getElementById("link2").href = "posts/peyton_manning.html";
+          document.getElementById("link3").href = "#contact";
+          document.getElementById("link4").href = "#contact";
+          document.getElementById("link5").href = "#contact";
+          document.getElementById("link6").href = "#contact";
+
+          document.getElementById("img1").src="img/BSAC_NFL.png";
+          document.getElementById("img2").src="img/BSAC_NFL.png";
+          document.getElementById("img3").src="img/BSAC_Empty.png";
+          document.getElementById("img4").src="img/BSAC_Empty.png";
+          document.getElementById("img5").src="img/BSAC_Empty.png";
+          document.getElementById("img6").src="img/BSAC_Empty.png";
+
+          document.getElementById("cap1").innerHTML = draftstring;
+          document.getElementById("cap2").innerHTML = peytonstring;
+          document.getElementById("cap3").innerHTML = emptystring;
+          document.getElementById("cap4").innerHTML = emptystring;
+          document.getElementById("cap5").innerHTML = emptystring;
+          document.getElementById("cap6").innerHTML = emptystring;
+
+          set_sort(2);
+          //next_page(get_page());
+        }
+        if (s == 3){
+          document.getElementById("all").classList.remove("w3-black");
+          document.getElementById("all").classList.add("w3-white");
+          document.getElementById("NFL").classList.remove("w3-black");
+          document.getElementById("NFL").classList.add("w3-white");
+          document.getElementById("MLB").classList.add("w3-black");
+          document.getElementById("NBA").classList.add("w3-white");
+          document.getElementById("NBA").classList.remove("w3-black");
+          document.getElementById("NHL").classList.add("w3-white");
+          document.getElementById("NHL").classList.remove("w3-black");
+          document.getElementById("Other").classList.add("w3-white");
+          document.getElementById("Other").classList.remove("w3-black");
+
+          document.getElementById("link1").href = "#contact";
+          document.getElementById("link2").href = "#contact";
+          document.getElementById("link3").href = "#contact";
+          document.getElementById("link4").href = "#contact";
+          document.getElementById("link5").href = "#contact";
+          document.getElementById("link6").href = "#contact";
+
+          document.getElementById("link1").title='Submit your work today!';
+          document.getElementById("link2").title='Submit your work today!';
+          document.getElementById("link3").title='Submit your work today!';
+          document.getElementById("link4").title='Submit your work today!';
+          document.getElementById("link5").title='Submit your work today!';
+          document.getElementById("link6").title='Submit your work today!';
+
+          document.getElementById("cap1").innerHTML = emptystring;
+          document.getElementById("cap2").innerHTML = emptystring;
+          document.getElementById("cap3").innerHTML = emptystring;
+          document.getElementById("cap4").innerHTML = emptystring;
+          document.getElementById("cap5").innerHTML = emptystring;
+          document.getElementById("cap6").innerHTML = emptystring;
+
+          document.getElementById("img1").src="img/BSAC_Empty.png";
+          document.getElementById("img2").src="img/BSAC_Empty.png";
+          document.getElementById("img3").src="img/BSAC_Empty.png";
+          document.getElementById("img4").src="img/BSAC_Empty.png";
+          document.getElementById("img5").src="img/BSAC_Empty.png";
+          document.getElementById("img6").src="img/BSAC_Empty.png";
+
+          set_sort(3);
+          //next_page(get_page());
+
+        }
+        if (s == 4){
+          document.getElementById("all").classList.remove("w3-black");
+          document.getElementById("all").classList.add("w3-white");
+          document.getElementById("NFL").classList.remove("w3-black");
+          document.getElementById("NFL").classList.add("w3-white");
+          document.getElementById("MLB").classList.remove("w3-black");
+          document.getElementById("MLB").classList.add("w3-white");
+          document.getElementById("NBA").classList.add("w3-black");
+          document.getElementById("NHL").classList.add("w3-white");
+          document.getElementById("NHL").classList.remove("w3-black");
+          document.getElementById("Other").classList.add("w3-white");
+          document.getElementById("Other").classList.remove("w3-black");
+
+          document.getElementById("link1").href = "#contact";
+          document.getElementById("link2").href = "#contact";
+          document.getElementById("link3").href = "#contact";
+          document.getElementById("link4").href = "#contact";
+          document.getElementById("link5").href = "#contact";
+          document.getElementById("link6").href = "#contact";
+
+          document.getElementById("link1").title='Submit your work today!';
+          document.getElementById("link2").title='Submit your work today!';
+          document.getElementById("link3").title='Submit your work today!';
+          document.getElementById("link4").title='Submit your work today!';
+          document.getElementById("link5").title='Submit your work today!';
+          document.getElementById("link6").title='Submit your work today!';
+
+          document.getElementById("cap1").innerHTML = emptystring;
+          document.getElementById("cap2").innerHTML = emptystring;
+          document.getElementById("cap3").innerHTML = emptystring;
+          document.getElementById("cap4").innerHTML = emptystring;
+          document.getElementById("cap5").innerHTML = emptystring;
+          document.getElementById("cap6").innerHTML = emptystring;
+
+          document.getElementById("img1").src="img/BSAC_Empty.png";
+          document.getElementById("img2").src="img/BSAC_Empty.png";
+          document.getElementById("img3").src="img/BSAC_Empty.png";
+          document.getElementById("img4").src="img/BSAC_Empty.png";
+          document.getElementById("img5").src="img/BSAC_Empty.png";
+          document.getElementById("img6").src="img/BSAC_Empty.png";
+
+          set_sort(4);
+          //next_page(get_page());
+
+        }
+        if (s == 5){
+          document.getElementById("all").classList.remove("w3-black");
+          document.getElementById("all").classList.add("w3-white");
+          document.getElementById("NFL").classList.remove("w3-black");
+          document.getElementById("NFL").classList.add("w3-white");
+          document.getElementById("MLB").classList.remove("w3-black");
+          document.getElementById("MLB").classList.add("w3-white");
+          document.getElementById("NBA").classList.remove("w3-black");
+          document.getElementById("NBA").classList.add("w3-white");
+          document.getElementById("NHL").classList.add("w3-black");
+          document.getElementById("Other").classList.add("w3-white");
+          document.getElementById("Other").classList.remove("w3-black");
+
+          document.getElementById("link1").href = "#contact";
+          document.getElementById("link2").href = "#contact";
+          document.getElementById("link3").href = "#contact";
+          document.getElementById("link4").href = "#contact";
+          document.getElementById("link5").href = "#contact";
+          document.getElementById("link6").href = "#contact";
+
+          document.getElementById("link1").title='Submit your work today!';
+          document.getElementById("link2").title='Submit your work today!';
+          document.getElementById("link3").title='Submit your work today!';
+          document.getElementById("link4").title='Submit your work today!';
+          document.getElementById("link5").title='Submit your work today!';
+          document.getElementById("link6").title='Submit your work today!';
+
+          document.getElementById("cap1").innerHTML = emptystring;
+          document.getElementById("cap2").innerHTML = emptystring;
+          document.getElementById("cap3").innerHTML = emptystring;
+          document.getElementById("cap4").innerHTML = emptystring;
+          document.getElementById("cap5").innerHTML = emptystring;
+          document.getElementById("cap6").innerHTML = emptystring;
+
+          document.getElementById("img1").src="img/BSAC_Empty.png";
+          document.getElementById("img2").src="img/BSAC_Empty.png";
+          document.getElementById("img3").src="img/BSAC_Empty.png";
+          document.getElementById("img4").src="img/BSAC_Empty.png";
+          document.getElementById("img5").src="img/BSAC_Empty.png";
+          document.getElementById("img6").src="img/BSAC_Empty.png";
+
+          set_sort(5);
+          //next_page(get_page());
+
+        }
+        if (s == 6){
+          document.getElementById("all").classList.remove("w3-black");
+          document.getElementById("all").classList.add("w3-white");
+          document.getElementById("NFL").classList.remove("w3-black");
+          document.getElementById("NFL").classList.add("w3-white");
+          document.getElementById("MLB").classList.remove("w3-black");
+          document.getElementById("MLB").classList.add("w3-white");
+          document.getElementById("NBA").classList.remove("w3-black");
+          document.getElementById("NBA").classList.add("w3-white");
+          document.getElementById("NHL").classList.remove("w3-black");
+          document.getElementById("NHL").classList.add("w3-white");
+          document.getElementById("Other").classList.add("w3-black");
+
+          document.getElementById("link1").href = "posts/mit_sloan.html";
+          document.getElementById("link2").href = "#contact";
+          document.getElementById("link3").href = "#contact";
+          document.getElementById("link4").href = "#contact";
+          document.getElementById("link5").href = "#contact";
+          document.getElementById("link6").href = "#contact";
+
+          document.getElementById("link1").title="MIT Sloan Conference";
+          document.getElementById("link2").title='Submit your work today!';
+          document.getElementById("link3").title='Submit your work today!';
+          document.getElementById("link4").title='Submit your work today!';
+          document.getElementById("link5").title='Submit your work today!';
+          document.getElementById("link6").title='Submit your work today!';
+
+          document.getElementById("cap1").innerHTML = mitstring;
+          document.getElementById("cap2").innerHTML = emptystring;
+          document.getElementById("cap3").innerHTML = emptystring;
+          document.getElementById("cap4").innerHTML = emptystring;
+          document.getElementById("cap5").innerHTML = emptystring;
+          document.getElementById("cap6").innerHTML = emptystring;
+
+          document.getElementById("img1").src="img/BSAC_Other.png";
+          document.getElementById("img2").src="img/BSAC_Empty.png";
+          document.getElementById("img3").src="img/BSAC_Empty.png";
+          document.getElementById("img4").src="img/BSAC_Empty.png";
+          document.getElementById("img5").src="img/BSAC_Empty.png";
+          document.getElementById("img6").src="img/BSAC_Empty.png";
+
+          set_sort(6);
+        }
+        document.getElementById("page1").classList.add("w3-black");
+        document.getElementById("page2").classList.remove("w3-black");
+        document.getElementById("page3").classList.remove("w3-black");
+        document.getElementById("page4").classList.remove("w3-black");
+    }
+  var currentpage;
+  function next_page(s) {
+    var page;
+    var emptystring = "<p><b>Submit Work for the chance to have it featured here!</b></p><p>Do you have sports analytics work that you would like to share? Send it to us at (email here) for a chance to see it shared and posted here.</p>";
+    var mitstring = "<p><b>2017 MIT Sloan Analytics Conference</b></p><p>Posted by Ryan Burke - Class of 2018 on April 1, 2017.</p>"
+    var draftstring = "<p><b>NFL Resource Allocation: How much are NFL Draft picks worth, in Salary Cap Space?</b></p><p>In 2017, the Browns essentially traded 15 million dollars for a second round pick &ndash; was this too high a price to pay?</p>";
+    var peytonstring = "<p><b>Is Peyton Manning a Playoff Quarterback?</b></p><p>Is Peyton Manning a regular season quarterback? We tested this by comparing Manning's average Passer Rating in the playoffs against Manning's average Passer... </p>";
+    if (s == 5){
+      if (currentpage == 4) {
+        page = 1;
+      } else {
+        page = currentpage + 1;
+      }
+    } else if (s == 6){
+      if (currentpage == 1){
+        page = 4;
+      } else {
+        page = currentpage - 1;
+      }
+    } else {
+      page = s;
+    }
+
+    if(page == 1){
+      currentpage = 1;
+      set_page(1);
+      document.getElementById("link1").title="MIT Sloan Conference";
+      document.getElementById("link2").title='Draft Pick Valuation';
+      document.getElementById("link3").title='Peyton Manning in the Playoffs';
+      document.getElementById("link4").title='Submit your work today!';
+      document.getElementById("link5").title='Submit your work today!';
+      document.getElementById("link6").title='Submit your work today!';
+
+      document.getElementById("link1").href = "posts/mit_sloan.html";
+      document.getElementById("link2").href = "posts/draft_pick_valuation.html";
+      document.getElementById("link3").href = "posts/peyton_manning.html";
+      document.getElementById("link4").href = "#contact";
+      document.getElementById("link5").href = "#contact";
+      document.getElementById("link6").href = "#contact";
+
+      document.getElementById("img1").src="img/BSAC_Other.png";
+      document.getElementById("img2").src="img/BSAC_NFL.png";
+      document.getElementById("img3").src="img/BSAC_NFL.png";
+      document.getElementById("img4").src="img/BSAC_Empty.png";
+      document.getElementById("img5").src="img/BSAC_Empty.png";
+      document.getElementById("img6").src="img/BSAC_Empty.png";
+
+      document.getElementById("cap1").innerHTML = mitstring;
+      document.getElementById("cap2").innerHTML = draftstring;
+      document.getElementById("cap3").innerHTML = peytonstring;
+      document.getElementById("cap4").innerHTML = emptystring;
+      document.getElementById("cap5").innerHTML = emptystring;
+      document.getElementById("cap6").innerHTML = emptystring;
+
+      document.getElementById("page1").classList.add("w3-black");
+      document.getElementById("page2").classList.remove("w3-black");
+      document.getElementById("page3").classList.remove("w3-black");
+      document.getElementById("page4").classList.remove("w3-black");
+
+      //sort(get_sort());
+    }
+    if(page == 2){
+      currentpage = 2;
+      set_page(2);
+
+      document.getElementById("link1").href = "#contact";
+      document.getElementById("link2").href = "#contact";
+      document.getElementById("link3").href = "#contact";
+      document.getElementById("link4").href = "#contact";
+      document.getElementById("link5").href = "#contact";
+      document.getElementById("link6").href = "#contact";
+      
+      document.getElementById("link1").title='Submit your work today!';
+      document.getElementById("link2").title='Submit your work today!';
+      document.getElementById("link3").title='Submit your work today!';
+      document.getElementById("link4").title='Submit your work today!';
+      document.getElementById("link5").title='Submit your work today!';
+      document.getElementById("link6").title='Submit your work today!';
+
+      document.getElementById("img1").src="img/BSAC_Empty.png";
+      document.getElementById("img2").src="img/BSAC_Empty.png";
+      document.getElementById("img3").src="img/BSAC_Empty.png";
+      document.getElementById("img4").src="img/BSAC_Empty.png";
+      document.getElementById("img5").src="img/BSAC_Empty.png";
+      document.getElementById("img6").src="img/BSAC_Empty.png";
+
+      document.getElementById("cap1").innerHTML = emptystring;
+      document.getElementById("cap2").innerHTML = emptystring;
+      document.getElementById("cap3").innerHTML = emptystring;
+      document.getElementById("cap4").innerHTML = emptystring;
+      document.getElementById("cap5").innerHTML = emptystring;
+      document.getElementById("cap6").innerHTML = emptystring;
+
+      document.getElementById("page1").classList.remove("w3-black");
+      document.getElementById("page2").classList.add("w3-black");
+      document.getElementById("page3").classList.remove("w3-black");
+      document.getElementById("page4").classList.remove("w3-black");
+
+      //sort(get_sort());
+    }
+    if(page == 3){
+      currentpage = 3;
+      set_page(3);
+
+      document.getElementById("link1").href = "#contact";
+      document.getElementById("link2").href = "#contact";
+      document.getElementById("link3").href = "#contact";
+      document.getElementById("link4").href = "#contact";
+      document.getElementById("link5").href = "#contact";
+      document.getElementById("link6").href = "#contact";
+
+      document.getElementById("link1").title='Submit your work today!';
+      document.getElementById("link2").title='Submit your work today!';
+      document.getElementById("link3").title='Submit your work today!';
+      document.getElementById("link4").title='Submit your work today!';
+      document.getElementById("link5").title='Submit your work today!';
+      document.getElementById("link6").title='Submit your work today!';
+
+      document.getElementById("cap1").innerHTML = emptystring;
+      document.getElementById("cap2").innerHTML = emptystring;
+      document.getElementById("cap3").innerHTML = emptystring;
+      document.getElementById("cap4").innerHTML = emptystring;
+      document.getElementById("cap5").innerHTML = emptystring;
+      document.getElementById("cap6").innerHTML = emptystring;
+
+      document.getElementById("img1").src="img/BSAC_Empty.png";
+      document.getElementById("img2").src="img/BSAC_Empty.png";
+      document.getElementById("img3").src="img/BSAC_Empty.png";
+      document.getElementById("img4").src="img/BSAC_Empty.png";
+      document.getElementById("img5").src="img/BSAC_Empty.png";
+      document.getElementById("img6").src="img/BSAC_Empty.png";
+
+      document.getElementById("page1").classList.remove("w3-black");
+      document.getElementById("page2").classList.remove("w3-black");
+      document.getElementById("page3").classList.add("w3-black");
+      document.getElementById("page4").classList.remove("w3-black");
+
+      //sort(get_sort());
+    }
+    if(page == 4){
+      currentpage = 4;
+      set_page(4);
+
+      document.getElementById("link1").href = "#contact";
+      document.getElementById("link2").href = "#contact";
+      document.getElementById("link3").href = "#contact";
+      document.getElementById("link4").href = "#contact";
+      document.getElementById("link5").href = "#contact";
+      document.getElementById("link6").href = "#contact";
+
+      document.getElementById("link1").title='Submit your work today!';
+      document.getElementById("link2").title='Submit your work today!';
+      document.getElementById("link3").title='Submit your work today!';
+      document.getElementById("link4").title='Submit your work today!';
+      document.getElementById("link5").title='Submit your work today!';
+      document.getElementById("link6").title='Submit your work today!';
+
+      document.getElementById("cap1").innerHTML = emptystring;
+      document.getElementById("cap2").innerHTML = emptystring;
+      document.getElementById("cap3").innerHTML = emptystring;
+      document.getElementById("cap4").innerHTML = emptystring;
+      document.getElementById("cap5").innerHTML = emptystring;
+      document.getElementById("cap6").innerHTML = emptystring;
+
+      document.getElementById("img1").src="img/BSAC_Empty.png";
+      document.getElementById("img2").src="img/BSAC_Empty.png";
+      document.getElementById("img3").src="img/BSAC_Empty.png";
+      document.getElementById("img4").src="img/BSAC_Empty.png";
+      document.getElementById("img5").src="img/BSAC_Empty.png";
+      document.getElementById("img6").src="img/BSAC_Empty.png";
+
+      document.getElementById("page1").classList.remove("w3-black");
+      document.getElementById("page2").classList.remove("w3-black");
+      document.getElementById("page3").classList.remove("w3-black");
+      document.getElementById("page4").classList.add("w3-black");
+
+      //sort(get_sort());
+    }
+    location.href = "#";
+  }
+</script>
+
+<script src="vendor/jquery/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
