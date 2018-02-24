@@ -49,9 +49,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <i style="cursor:pointer; color: rgb(59, 89, 152)" onclick="location.href='https://www.facebook.com/BrownSportsAnalyticsClub/'" class="fab fa-facebook-square w3-hover-opacity w3-margin-right"></i>
     <i style="cursor:pointer; color: rgb(85, 172, 238)" onclick="location.href='https://twitter.com/brownu_sac'" class="fab fa-twitter w3-hover-opacity w3-margin-right"></i>
   </div>
-  <div>
-    Current Bugs: contact form is non-functional, Back button resets everything, page sorting is not maintained by page
-  </div>
 </nav>
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -162,18 +159,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       </div>
     </div> 
     <hr class="w3-opacity" />
-    <form action="/action_page.php" target="_blank">
+    <form id="contactForm">
       <div class="w3-section">
         <label>Name</label>
-        <input class="w3-input w3-border" type="text" name="Name" required>
+        <input class="w3-input w3-border" type="text" name="Name" id="name" required>
       </div>
       <div class="w3-section">
         <label>Email</label>
-        <input class="w3-input w3-border" type="text" name="Email" required>
+        <input class="w3-input w3-border" type="text" name="Email" id="email" required>
       </div>
       <div class="w3-section">
         <label>Message</label>
-        <textarea style="height: 140px;" class="w3-input w3-border" type="text" name="Message" required></textarea>
+        <textarea style="height: 140px;" class="w3-input w3-border" type="text" id="message" name="Message" required></textarea>
       </div>
       <button type="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Send Message</button>
     </form>
